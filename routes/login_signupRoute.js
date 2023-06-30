@@ -1,12 +1,17 @@
 const { Router } = require('express');
 const { users } = require('../models/userShema');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
 
 let loginSignupRoute = Router();
+
+//      home routes   //
 
 loginSignupRoute.get('/index', (req, res) => {
     res.render('index');
 });
+
+//      signup routes     //
 
 loginSignupRoute.get('/signup', (req, res) => {
     res.render('signup');
@@ -25,5 +30,16 @@ loginSignupRoute.post('/signup', async (req, res) => {
         res.send('user already exists');
     }
 })
+
+//      login routes     //
+
+loginSignupRoute.get('/login', (req, res) => {
+    res.render('login');
+})
+
+loginSignupRoute.post('/login', passport.authenticate('local'), (req, res) => {
+    res.redirect('/index');
+});
+
 
 module.exports = loginSignupRoute;

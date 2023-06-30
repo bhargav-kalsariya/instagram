@@ -423,7 +423,7 @@ button:not(:enabled) {
 
 /* instagram signup page  */
 
-.signupContainer{
+.logSignContainer {
     width: 100%;
     height: 100vh;
     justify-content: center;
@@ -450,7 +450,7 @@ h1 {
 
 .form-group input {
     width: 100%;
-    padding: 14px 25px;
+    padding: 10px 25px;
     border: 1px solid #dbdbdb;
     border-radius: 4px;
     font-size: 14px;
@@ -464,4 +464,9 @@ h1 {
 
 .form-group input[type="submit"]:hover {
     background-color: #3182b9;
+}
+
+.google-box img{
+    width: 40px;
+    cursor: pointer;
 }
