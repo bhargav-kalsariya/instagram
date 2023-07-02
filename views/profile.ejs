@@ -1,0 +1,65 @@
+<!-- profile.ejs -->
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <h1>Welcome, <%= user.displayName %>
+    </h1>
+    <p>Email: <%= user.emails[0].value %>
+    </p>
+    <img src="<%= user.photos[0].value %>" alt="user profile image">
+    Add other user data you want to display
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Instagram Profile Clone</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="profile">
+                <img class="profile-picture" src="<%= user.photos[0].value %>" alt="Profile Picture">
+                <div class="profile-info">
+                    <h1 class="username">
+                        <%= user.displayName %>
+                    </h1>
+                    <div class="stats">
+                        <span class="posts-count">100</span>
+                        <span class="followers-count">10k</span>
+                        <span class="following-count">500</span>
+                    </div>
+                </div>
+                <button class="edit-profile-button">Edit Profile</button>
+            </div>
+        </header>
+        <div class="content">
+            <div class="posts">
+                <!-- Post 1 -->
+                <div class="post">
+                    <img src="/assets/img/Screenshot_3.png" alt="Post 1">
+                </div>
+                <!-- Post 2 -->
+                <div class="post">
+                    <img src="/assets/img/Screenshot_4.png" alt="Post 2">
+                </div>
+                <!-- Post 3 -->
+                <div class="post">
+                    <img src="/assets/img/Screenshot_5.png" alt="Post 3">
+                </div>
+                <!-- More posts -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

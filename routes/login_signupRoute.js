@@ -11,7 +11,7 @@ require('../middleware/googleAuthentication');
 //      home routes   //
 
 loginSignupRoute.get('/index', IsAuthenticated, (req, res) => {
-    res.render('index');
+    res.render('index', { user: req.user });
 });
 
 //      signup routes     //
@@ -34,6 +34,13 @@ loginSignupRoute.post('/signup', async (req, res) => {
     }
 })
 
+//  profile route   //
+
+loginSignupRoute.get('/profile', IsAuthenticated, (req, res) => {
+    res.render('profile', { user: req.user });
+    // res.render('profile');
+})
+
 //      login routes     //
 
 loginSignupRoute.get('/login', (req, res) => {
@@ -41,11 +48,14 @@ loginSignupRoute.get('/login', (req, res) => {
 })
 
 loginSignupRoute.post('/login', passport.authenticate('local'), (req, res) => {
+    console.log(req.user);
     res.redirect('/index');
 });
 
 loginSignupRoute.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
 
-loginSignupRoute.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/index' }));
+loginSignupRoute.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+    res.redirect('/index');
+});
 
 module.exports = loginSignupRoute;
